@@ -1,0 +1,27 @@
+.logo {
+  align-items: center;
+  column-gap: .5rem;
+  display: flex;
+  img {
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    &.lg {
+      max-width: 70px;
+    }
+    &.md {
+      max-width: 70px;
+    }
+  }
+  .logo-title {
+    color: #fff4ee;
+    font-family: $font-logo;
+    font-size: 2.5rem;
+    font-weight: 400;
+    text-shadow: 3px 3px 1px $light-red;
+  }
+}
+
+header .logo .logo-title {
+  color: #fff4ee;
+}

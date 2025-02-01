@@ -1,0 +1,89 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: $font-main;
+  background: $main-bg-color;
+  color: $main-text-color;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  scroll-behavior: smooth;
+}
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+.container {
+  @include container;
+}
+header {
+  background-color: $header-bg-color;
+  padding: 1rem;
+}
+main {
+  @include flex(column, flex-start, stretch, 0);
+  margin-block: 0 4rem;
+  min-height: 0;
+  flex-grow: 1;
+  .section {
+    padding: 2rem 1rem;
+  }
+}
+footer {
+  background-color: $footer-bg-color;
+  color: $footer-text-color;
+  padding: 5rem 1rem;
+  .container {
+    @include flex(column, flex-start, center, 2rem);
+    flex-wrap: wrap;
+    text-align: center;
+    @media (width >= 768px) {
+      @include flex(row, space-between, flex-start, 1rem);
+    }
+  }
+  .social-networks {
+    @include flex(row, center, center, 1rem);
+    margin-top: 1rem;
+  }
+}
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+h2 {
+  @include heading(2rem, $font-h2, 700, $h2-color);
+}
+h3 {
+  @include heading(1rem, $font-h3, 400);
+  letter-spacing: .2rem;
+  text-transform: uppercase;
+}
+a {
+  @include link($a-color);
+}
+button {
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-family: $button-font-family;
+  font-size: 1rem;
+  letter-spacing: .1rem;
+  padding: .5rem 1.5rem;
+  text-transform: uppercase;
+  transition: background-color .7s;
+}
+.btn-primary {
+  @include button;
+}
+.btn-secondary {
+  @include button($btn-secondary-bg-color, $btn-secondary-text-color, $btn-secondary-hover-bg-color);
+}
+.flex-row {
+  @include flex(row);
+}
+.flex-column {
+  @include flex(column);
+}
