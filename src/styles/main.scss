@@ -30,18 +30,19 @@ main {
   min-height: 0;
   flex-grow: 1;
   .section {
-    padding: 2rem 1rem;
+    padding: 3rem 1rem;
   }
 }
 footer {
   background-color: $footer-bg-color;
   color: $footer-text-color;
+  font-family: $footer-font;
   padding: 5rem 1rem;
   .container {
     @include flex(column, flex-start, center, 2rem);
     flex-wrap: wrap;
     text-align: center;
-    @media (width >= 768px) {
+    @media (width >= $breakpoint-sm) {
       @include flex(row, space-between, flex-start, 1rem);
     }
   }
@@ -55,6 +56,7 @@ h1, h2, h3, h4, h5, h6, p {
 }
 h2 {
   @include heading(2rem, $font-h2, 700, $h2-color);
+  margin-bottom: 1rem;
 }
 h3 {
   @include heading(1rem, $font-h3, 400);
@@ -86,4 +88,10 @@ button {
 }
 .flex-column {
   @include flex(column);
+}
+.hide-sm {
+  display: none;
+  @media (width >= $breakpoint-sm) {
+    display: block;
+  }
 }

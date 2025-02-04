@@ -22,7 +22,7 @@ export const Footer = () => {
         <div className='flex-column'>
           <h3>Dirección</h3>
           <span>Calle Inventada 5</span>
-          <span>08032 Barcelona</span>
+          <span>08840 Viladecans, Barcelona</span>
         </div>
         <div className='flex-column'>
           <h3>Horario</h3>
