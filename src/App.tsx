@@ -1,4 +1,4 @@
-import { Home } from './pages/Home'
+import { Home } from '@pages/Home'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 export const App = () => {

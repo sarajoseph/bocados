@@ -1,5 +1,5 @@
-import '../styles/location.scss'
-import { Map } from '../components/Map'
+import '@scss/location.scss'
+import { Map } from '@components/Map'
 
 export const Location = () => {
   return (

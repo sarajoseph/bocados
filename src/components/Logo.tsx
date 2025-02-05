@@ -1,4 +1,4 @@
-import '../styles/logo.scss'
+import '@scss/logo.scss'
 export const Logo = ({ size = 'md', titleTag: TitleTag = 'p' }: { size?: string, titleTag?: keyof JSX.IntrinsicElements }) => {
   return (
     <div className='logo'>

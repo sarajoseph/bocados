@@ -1,4 +1,4 @@
-import '../styles/hero.scss'
+import '@scss/hero.scss'
 export const Hero = () => {
   return (
     <section>
