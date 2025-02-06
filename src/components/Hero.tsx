@@ -1,4 +1,5 @@
 import '@scss/hero.scss'
+import { Link } from 'react-router'
 export const Hero = () => {
   return (
     <section>
@@ -8,8 +9,8 @@ export const Hero = () => {
           Tu navegador no soporta el video.
         </video>
         <div className='content'>
-          <button className='btn-secondary'>Ver menu</button>
-          <button className='btn-secondary'>Hacer reserva</button>
+          <Link to='/menu' className='btn-secondary'>Ver menu</Link>
+          <Link to='/contact' className='btn-secondary'>Hacer reserva</Link>
         </div>
       </div>
     </section>

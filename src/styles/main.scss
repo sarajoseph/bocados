@@ -23,14 +23,18 @@ body {
 header {
   background-color: $header-bg-color;
   padding: 1rem;
+  a {
+    @include link(inherit, none, none);
+  }
 }
 main {
-  @include flex(column, flex-start, stretch, 0);
-  margin-block: 0 4rem;
-  min-height: 0;
-  flex-grow: 1;
+  min-height: 100vh;
+  @include flex(column);
   .section {
     padding: 3rem 1rem;
+    @media (width >= $breakpoint-sm) {
+      padding: 3rem 1rem 5rem;
+    }
   }
 }
 footer {
@@ -65,17 +69,6 @@ h3 {
 }
 a {
   @include link($a-color);
-}
-button {
-  border: none;
-  border-radius: 2px;
-  cursor: pointer;
-  font-family: $button-font-family;
-  font-size: 1rem;
-  letter-spacing: .1rem;
-  padding: .5rem 1.5rem;
-  text-transform: uppercase;
-  transition: background-color .7s;
 }
 .btn-primary {
   @include button;

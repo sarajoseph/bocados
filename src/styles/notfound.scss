@@ -1,0 +1,8 @@
+.notfound {
+  @include flex(column, center, center);
+  height: 80vh;
+  h2 {
+    @include heading(3rem, $font-main, 700, $main-text-color);
+    margin-block: 0;
+  }
+}

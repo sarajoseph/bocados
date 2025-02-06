@@ -1,13 +1,14 @@
 import { Logo } from '@components/Logo'
+import { Link } from 'react-router'
 export const Header = () => {
   return (
     <header>
-      <div className='container flex-row'>
+      <Link to='/' className='container flex-row'>
         <Logo
           size='lg'
           titleTag='h1'
         />
-      </div>
+      </Link>
     </header>
   )
 }
