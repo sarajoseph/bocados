@@ -20,11 +20,6 @@
     }
   }
   .gm-container {
-    width: 100%;
-    height: 400px;
-    @media (width >= $breakpoint-sm) {
-      width: 70%;
-      height: 400px;
-    }
+    @include mapSize(100%, 400px, 70%, 400px);
   }
 }

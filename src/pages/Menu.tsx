@@ -1,8 +1,8 @@
-import { WebContainer } from '@src/components/WebContainer'
+import { WebContainer } from '@components/WebContainer'
 
 export const Menu = () => {
   return (
-    <WebContainer>
+    <WebContainer pageClass='menu'>
       Menu
     </WebContainer>
   )

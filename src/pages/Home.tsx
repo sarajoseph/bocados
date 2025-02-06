@@ -5,7 +5,7 @@ import { WebContainer } from '@components/WebContainer'
 
 export const Home = () => {
   return (
-    <WebContainer>
+    <WebContainer pageClass='home'>
       <Hero />
       <Description />
       <Location />

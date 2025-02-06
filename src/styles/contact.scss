@@ -1,0 +1,76 @@
+.contact {
+  .contact-form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    &-box {
+      background-color: #e4e4e4;
+      border-radius: 10px;
+      box-sizing: border-box;
+      color: #333;
+      max-width: 100%;
+      padding: 2rem;
+      width: 100%;
+      @media (width >= $breakpoint-sm) {
+        max-width: $breakpoint-sm;
+        padding: 3rem;
+      }
+      .form {
+        display: flex;
+        flex-direction: column;
+        &-group {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 2rem;
+        }
+        label {
+          font-family: $font-h3;
+          font-weight: 400;
+          letter-spacing: .1rem;
+          margin-bottom: .5rem;
+          text-transform: uppercase;
+        }
+        input,
+        textarea {
+          background-color: #fff;
+          border-radius: 5px;
+          border-color: transparent;
+          box-sizing: border-box;
+          font-family: $font-main;
+          font-size: 1rem;
+          max-width: 100%;
+          padding: .8rem;
+          width: 100%;
+          &:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 1px $coral;
+          }
+        }
+        textarea {
+          min-height: 100px;
+        }
+      }
+    }
+  }
+  .contact-info {
+    @include flex(column, center, center, 3rem);
+    padding-bottom: 4rem;
+    text-align: center;
+    @media (width >= $breakpoint-sm) {
+      @include flex(row, space-between, flex-start, 2rem);
+      padding-bottom: 8rem;
+      padding-top: 3rem;
+    }
+    .contact-box {
+      @include flex(column, center, center, 0);
+      > svg {
+        color: $coral;
+        margin-bottom: 1rem;
+      }
+      h3 {
+        margin-bottom: .5rem;
+      }
+    }
+  }
+}
