@@ -6,14 +6,16 @@ import { Timetable } from '@components/Timetable'
 import { WebContainer } from '@components/WebContainer'
 import { ContactForm } from '@components/ContactForm'
 import { SocialNetworks } from '@components/SocialNetworks'
+import { useRestaurantContext } from '@hooks/useRestaurantContext'
 
 export const Contact = () => {
+  const { restaurantPhone, restaurantEmail } = useRestaurantContext()
   return (
     <WebContainer pageClass='contact'>
       <section className='section'>
         <div className="container">
           <h2>Contacto</h2>
-          <p>Reserva tu mesa o contáctanos por email <strong>hola@bocados.com</strong>, por teléfono <strong>+34 XXX XX XX XX</strong> o a través del siguiente formulario. Estaremos encantados de atenderte y resolver cualquier duda.</p>
+          <p>Reserva tu mesa o contáctanos por email <strong>{restaurantEmail}</strong>, por teléfono <strong>{restaurantPhone}</strong> o a través del siguiente formulario. Estaremos encantados de atenderte y resolver cualquier duda.</p>
           <ContactForm />
         </div>
       </section>
