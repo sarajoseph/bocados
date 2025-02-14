@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { doc, getDoc } from 'firebase/firestore'
 import { db } from '@src/firebase/client'
-import { RestaurantContext, RestaurantDataType } from '@context/RestaurantContext'
+import { RestaurantContext } from '@context/RestaurantContext'
+import { RestaurantDataType } from '@mytypes/types'
 
 export const RestaurantProvider = ({ children }: { children: React.ReactNode }) => {
   const [restaurant, setRestaurant] = useState<RestaurantDataType | null>(null)

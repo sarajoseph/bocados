@@ -21,6 +21,8 @@ export default defineConfig({
       "@images": path.resolve(__dirname, "src/assets/images"),
       "@context": path.resolve(__dirname, "src/context"),
       "@hooks": path.resolve(__dirname, "src/hooks"),
+      "@mytypes": path.resolve(__dirname, "src/types"),
+      "@constants": path.resolve(__dirname, "src/constants"),
     },
   },
 })

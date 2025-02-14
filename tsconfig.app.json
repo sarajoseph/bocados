@@ -31,6 +31,8 @@
       "@images/*": ["src/assets/images/*"],
       "@context/*": ["src/context/*"],
       "@hooks/*": ["src/hooks/*"],
+      "@mytypes/*": ["src/types/*"],
+      "@constants/*": ["src/constants/*"],
     }
   },
   "include": ["src", "**/*.d.ts"]

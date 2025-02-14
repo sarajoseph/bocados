@@ -1,18 +1,7 @@
 import { useState } from 'react'
 import { ImSpinner6 } from 'react-icons/im'
 import emailjs from '@emailjs/browser'
-
-type FormData = {
-  name: string;
-  email: string;
-  message: string;
-}
-
-type Errors = {
-  name: string;
-  email: string;
-  message: string;
-}
+import { FormData, Errors } from '@mytypes/types'
 
 export const ContactForm = () => {
   const [formData, setFormData] = useState<FormData>({ name: '', email: '', message: '' })
