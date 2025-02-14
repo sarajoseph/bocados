@@ -141,8 +141,15 @@ a {
     }
   }
 }
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: $coral;
+}
 .spinner {
-  animation: spin 1s linear infinite;
+  animation: spin 3s linear infinite;
 }
 @keyframes spin {
   from {

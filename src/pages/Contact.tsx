@@ -7,9 +7,13 @@ import { WebContainer } from '@components/WebContainer'
 import { ContactForm } from '@components/ContactForm'
 import { SocialNetworks } from '@components/SocialNetworks'
 import { useRestaurantContext } from '@hooks/useRestaurantContext'
+import { useLoadingContext } from '@hooks/useLoadingContext'
+import { Loading } from '@components/Loading'
 
 export const Contact = () => {
+  const loading = useLoadingContext()
   const { restaurantPhone, restaurantEmail } = useRestaurantContext()
+  if (loading) return <Loading />
   return (
     <WebContainer pageClass='contact'>
       <section className='section'>
