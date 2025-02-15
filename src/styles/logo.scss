@@ -6,12 +6,7 @@
     height: auto;
     aspect-ratio: 1 / 1;
     object-fit: contain;
-    &.lg {
-      max-width: 70px;
-    }
-    &.md {
-      max-width: 70px;
-    }
+    max-width: 70px;
   }
   .logo-title {
     color: #fff4ee;

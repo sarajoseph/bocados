@@ -29,6 +29,7 @@
       "@pages/*": ["src/pages/*"],
       "@components/*": ["src/components/*"],
       "@images/*": ["src/assets/images/*"],
+      "@videos/*": ["src/assets/videos/*"],
       "@context/*": ["src/context/*"],
       "@hooks/*": ["src/hooks/*"],
       "@mytypes/*": ["src/types/*"],

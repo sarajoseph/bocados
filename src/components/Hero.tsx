@@ -1,11 +1,13 @@
 import '@scss/hero.scss'
 import { Link } from 'react-router'
+import heroSectionVideo from '@videos/hero-section.mp4'
+import heroSectionVideoThumbnail from '@videos/hero-section-thumbnail.png'
 export const Hero = () => {
   return (
     <section>
       <div className="video-background">
-        <video autoPlay loop muted playsInline>
-          <source src="../../videos/hero-section.mp4" type="video/mp4" />
+        <video preload='none' poster={heroSectionVideoThumbnail} autoPlay loop muted playsInline>
+          <source src={heroSectionVideo} type="video/mp4" />
           Tu navegador no soporta el video.
         </video>
         <div className='content'>
