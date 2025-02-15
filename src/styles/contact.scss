@@ -1,4 +1,8 @@
 .contact {
+  > .section:last-child {
+    padding-bottom: 0;
+    padding-inline: 0;
+  }
   .contact-form {
     align-items: center;
     display: flex;
@@ -56,7 +60,9 @@
   .contact-info {
     @include flex(column, center, center, 3rem);
     padding-bottom: 4rem;
+    padding-inline: 1rem;
     text-align: center;
+    box-sizing: border-box;
     @media (width >= $breakpoint-sm) {
       @include flex(row, space-between, flex-start, 2rem);
       padding-bottom: 8rem;
@@ -72,5 +78,8 @@
         margin-bottom: .5rem;
       }
     }
+  }
+  .gm-container {
+    @include mapSize(100%, 500px, 100%, 500px);
   }
 }

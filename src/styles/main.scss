@@ -70,9 +70,7 @@ h2 {
   margin-bottom: 1rem;
 }
 h3 {
-  @include heading(1rem, $font-h3, 400);
-  letter-spacing: .2rem;
-  text-transform: uppercase;
+  @include heading(1rem, $font-h3, 400, inherit, .2rem, uppercase);
 }
 a {
   @include link($a-color);
@@ -88,6 +86,9 @@ a {
 }
 .flex-column {
   @include flex(column);
+}
+.text-right {
+  text-align: right;
 }
 .hide-sm {
   display: none;

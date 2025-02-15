@@ -34,3 +34,21 @@ export type Errors = {
   email: string;
   message: string;
 }
+
+export type MenuSubitemType = {
+  name?: string
+  bottle_price?: string
+  drink_price?: string
+  price?: string
+}
+
+export type MenuItemType = {
+  id: string
+  name?: string
+  description?: string
+  price?: string
+}
+
+export type MenuDataType = {
+  [category: string]: MenuItemType[]
+}

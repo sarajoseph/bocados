@@ -13,11 +13,13 @@
   width: 100%;
 }
 
-@mixin heading($font-size, $font-family, $weight: 700, $color: inherit) {
+@mixin heading($font-size, $font-family, $weight: 700, $color: inherit, $letterSpacing: 0, $textTransform: none) {
   font-size: $font-size;
   font-family: $font-family;
   font-weight: $weight;
   color: $color;
+  letter-spacing: $letterSpacing;
+  text-transform: $textTransform;
 }
 
 @mixin link($color, $text-decoration: none, $hover-text-decoration: underline, $hover-color: $color) {
@@ -36,7 +38,7 @@
   color: $color;
   cursor: pointer;
   font-family: $button-font-family;
-  font-size: 1rem;
+  font-size: 1.2rem;
   letter-spacing: .1rem;
   padding: $btn-padding;
   text-transform: uppercase;
