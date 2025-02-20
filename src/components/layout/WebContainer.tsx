@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
-import { Header } from '@components/Header'
-import { Footer } from '@components/Footer'
+import { Header } from '@components/layout/Header'
+import { Footer } from '@components/layout/Footer'
 
 export const WebContainer = ({ children, pageClass }: {children: ReactNode, pageClass: string}) => {
   return (

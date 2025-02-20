@@ -1,9 +1,9 @@
 import '@scss/menu.scss'
-import { WebContainer } from '@components/WebContainer'
-import { Loading } from '@components/Loading'
+import { WebContainer } from '@components/layout/WebContainer'
+import { Loading } from '@components/common/Loading'
 import { useLoadingContext } from '@hooks/useLoadingContext'
 import { useMenu } from '@hooks/useMenu'
-import { MenuSection } from '@components/MenuSection'
+import { MenuSection } from '@components/sections/menu/MenuSection'
 
 export const Menu = () => {
   const loading = useLoadingContext()

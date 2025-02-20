@@ -1,8 +1,8 @@
-import { Logo } from '@components/Logo'
-import { Address } from '@components/Address'
-import { Timetable } from '@components/Timetable'
-import { ContactData } from '@components/ContactData'
-import { SocialNetworks } from '@components/SocialNetworks'
+import { Logo } from '@components/common/Logo'
+import { Address } from '@components/common/Address'
+import { Timetable } from '@components/common/Timetable'
+import { ContactData } from '@components/common/ContactData'
+import { SocialNetworks } from '@components/common/SocialNetworks'
 
 export const Footer = () => {
   return (

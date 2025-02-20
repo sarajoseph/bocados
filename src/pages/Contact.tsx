@@ -1,14 +1,14 @@
 import '@scss/contact.scss'
-import { Address } from '@components/Address'
-import { ContactData } from '@components/ContactData'
-import { GMap } from '@components/GMap'
-import { Timetable } from '@components/Timetable'
-import { WebContainer } from '@components/WebContainer'
-import { ContactForm } from '@components/ContactForm'
-import { SocialNetworks } from '@components/SocialNetworks'
+import { Address } from '@components/common/Address'
+import { ContactData } from '@components/common/ContactData'
+import { GMap } from '@components/common/GMap'
+import { Timetable } from '@components/common/Timetable'
+import { WebContainer } from '@components/layout/WebContainer'
+import { ContactForm } from '@components/common/ContactForm'
+import { SocialNetworks } from '@components/common/SocialNetworks'
 import { useRestaurantContext } from '@hooks/useRestaurantContext'
 import { useLoadingContext } from '@hooks/useLoadingContext'
-import { Loading } from '@components/Loading'
+import { Loading } from '@components/common/Loading'
 
 export const Contact = () => {
   const loading = useLoadingContext()

@@ -1,6 +1,6 @@
 import '@scss/logo.scss'
 import { useRestaurantContext } from '@hooks/useRestaurantContext'
-import { Img } from './Img'
+import { Img } from '@components/common/Img'
 export const Logo = ({ titleTag: TitleTag = 'p' }: { titleTag?: keyof JSX.IntrinsicElements }) => {
   const { restaurantName } = useRestaurantContext()
   return (

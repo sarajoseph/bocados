@@ -1,5 +1,5 @@
 import { MenuItemType, MenuSubitemType } from '@mytypes/types'
-import { MenuItem } from '@components/MenuItem'
+import { MenuItem } from '@components/sections/menu/MenuItem'
 
 type MenuSectionType = {
   category: string

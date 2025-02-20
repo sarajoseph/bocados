@@ -1,9 +1,9 @@
-import { Description } from '@components/Description'
-import { Hero } from '@components/Hero'
-import { Location } from '@components/Location'
-import { WebContainer } from '@components/WebContainer'
+import { Description } from '@components/sections/Description'
+import { Hero } from '@components/sections/Hero'
+import { Location } from '@components/sections/Location'
+import { WebContainer } from '@components/layout/WebContainer'
 import { useLoadingContext } from '@hooks/useLoadingContext'
-import { Loading } from '@components/Loading'
+import { Loading } from '@components/common/Loading'
 
 export const Home = () => {
   const loading = useLoadingContext()
