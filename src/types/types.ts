@@ -52,3 +52,10 @@ export type MenuItemType = {
 export type MenuDataType = {
   [category: string]: MenuItemType[]
 }
+
+export type motionPropsType = {
+  initial: { opacity: number, y?: number, scale?: number }
+  whileInView: { opacity: number, y?: number, scale?: number }
+  transition: { duration: number, ease: string, delay?: number }
+  viewport: { once: boolean }
+}

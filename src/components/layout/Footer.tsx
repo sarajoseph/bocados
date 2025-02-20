@@ -3,11 +3,13 @@ import { Address } from '@components/common/Address'
 import { Timetable } from '@components/common/Timetable'
 import { ContactData } from '@components/common/ContactData'
 import { SocialNetworks } from '@components/common/SocialNetworks'
+import { motion } from 'motion/react'
+import { sectionAnimation } from '@constants/constants'
 
 export const Footer = () => {
   return (
     <footer>
-      <div className='container'>
+      <motion.div className='container' {...sectionAnimation}>
         <Logo />
         <div className="contact-info">
           <ContactData className='flex-column'>
@@ -16,7 +18,7 @@ export const Footer = () => {
           <Address className='flex-column' />
           <Timetable className='flex-column' />
         </div>
-      </div>
+      </motion.div>
     </footer>
   )
 }
