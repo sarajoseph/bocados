@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { ImSpinner6 } from 'react-icons/im'
 import emailjs from '@emailjs/browser'
 import { FormData, Errors } from '@mytypes/types'
+import { Modal } from '@components/common/Modal'
 
 export const ContactForm = () => {
   const [formData, setFormData] = useState<FormData>({ name: '', email: '', message: '' })
@@ -81,18 +82,12 @@ export const ContactForm = () => {
           </button>
         </form>
 
-        {isModalVisible && (
-        <div className="modal-overlay">
-          <div className="modal">
-            <button className="modal-close" onClick={() => setModalVisible(false)}>&times;</button>
-            <div className="modal-content">
-              <h3>¡Mensaje enviado!</h3>
-              <p>¡Muchas gracias por contactarnos! Tu mensaje se ha enviado correctamente. Pronto nos pondremos en contacto contigo.</p>
-              <button className='btn-secondary' onClick={() => setModalVisible(false)}>Cerrar</button>
-            </div>
-          </div>
-        </div>
-        )}
+        {isModalVisible &&
+        <Modal onClose={() => setModalVisible(false)}>
+          <h3>¡Mensaje enviado!</h3>
+          <p>¡Muchas gracias por contactarnos! Tu mensaje se ha enviado correctamente. Pronto nos pondremos en contacto contigo.</p>
+        </Modal>
+        }
       </div>
     </div>
   )
