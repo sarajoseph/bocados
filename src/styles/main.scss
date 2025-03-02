@@ -20,11 +20,26 @@ body {
 .container {
   @include container;
 }
-header {
+.header {
   background-color: $header-bg-color;
   padding: 1rem;
+  .container {
+    @include flex(row, space-between, center);
+  }
   a {
     @include link(inherit, none, none);
+  }
+  .burger-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    .open-menu {
+      color: $white;
+      filter: drop-shadow(3px 3px 1px $light-red);
+    }
   }
 }
 main {
