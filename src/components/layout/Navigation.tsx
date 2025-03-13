@@ -1,9 +1,17 @@
 import '@scss/navigation.scss'
 import { motion } from 'motion/react'
 import { LuX } from 'react-icons/lu'
-import { Link } from 'react-router'
+import { Link, useLocation } from 'react-router'
 
 export const Navigation = ({isOpen, closeMenu}: {isOpen: boolean, closeMenu: () => void}) => {
+  const location = useLocation()
+
+  const handleLinkClick = (path: string) => {
+    if (location.pathname === path) {
+      closeMenu()
+    }
+  }
+
   return (
     <motion.nav
       className={`navigation container ${isOpen ? 'open' : ''}`}
@@ -14,9 +22,9 @@ export const Navigation = ({isOpen, closeMenu}: {isOpen: boolean, closeMenu: () 
       <div className='nav-links'>
         <LuX size={60} className='close-menu' onClick={closeMenu} />
         <ul>
-          <li><Link to='/'>Inicio</Link></li>
-          <li><Link to='/menu'>Menú</Link></li>
-          <li><Link to='/contact'>Contacto</Link></li>
+          <li><Link to='/' onClick={() => handleLinkClick('/')}>Inicio</Link></li>
+          <li><Link to='/menu' onClick={() => handleLinkClick('/menu')}>Menú</Link></li>
+          <li><Link to='/contact' onClick={() => handleLinkClick('/contact')}>Contacto</Link></li>
         </ul>
       </div>
     </motion.nav>
