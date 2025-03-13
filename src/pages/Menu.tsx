@@ -4,6 +4,8 @@ import { Loading } from '@components/common/Loading'
 import { useLoadingContext } from '@hooks/useLoadingContext'
 import { useMenu } from '@hooks/useMenu'
 import { MenuSection } from '@components/sections/menu/MenuSection'
+import { motion } from 'motion/react'
+import { fadeOutFromBottomAnimation } from '@constants/constants'
 
 export const Menu = () => {
   const loading = useLoadingContext()
@@ -16,7 +18,7 @@ export const Menu = () => {
       :
       <section className='section'>
         <div className='container'>
-          <h2>Menu</h2>
+          <motion.h2 {...fadeOutFromBottomAnimation}>Menú</motion.h2>
           <div className='menu-container'>
           {menu && Object.entries(menu).map(([category, items]) => (
             <MenuSection

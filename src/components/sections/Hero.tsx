@@ -13,7 +13,7 @@ export const Hero = () => {
           Tu navegador no soporta el video.
         </video>
         <motion.div {...buttonsFromBottomAnimation} className='content'>
-          <Link to='/menu' className='btn-secondary'>Ver menu</Link>
+          <Link to='/menu' className='btn-secondary'>Ver menú</Link>
           <Link to='/contact' className='btn-secondary'>Hacer reserva</Link>
         </motion.div>
       </motion.div>

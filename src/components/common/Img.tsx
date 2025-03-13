@@ -6,8 +6,20 @@ type ImgType = {
   alt: string,
   className?: string,
   motionProps?: motionPropsType
+  smallImg?: string | null
 }
-export const Img = ({ src, alt, className, motionProps }: ImgType) => {
+export const Img = ({ src, alt, className, motionProps, smallImg }: ImgType) => {
+  if (smallImg) {
+    return motionProps
+      ? <motion.picture {...motionProps}>
+          <source srcSet={smallImg} media='(max-width: 767px)' />
+          <motion.img src={src} alt={alt} loading='lazy' className={className} />
+        </motion.picture>
+      : <picture>
+          <source srcSet={smallImg} media='(max-width: 767px)' />
+          <img src={src} alt={alt} loading='lazy' className={className} />
+        </picture>
+  }
   return motionProps
     ? <motion.img src={src} alt={alt} loading='lazy' className={className} {...motionProps} />
     : <img src={src} alt={alt} loading='lazy' className={className} />
