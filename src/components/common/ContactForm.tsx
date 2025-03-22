@@ -3,6 +3,10 @@ import { ImSpinner6 } from 'react-icons/im'
 import emailjs from '@emailjs/browser'
 import { FormData, Errors } from '@mytypes/types'
 import { Modal } from '@components/common/Modal'
+import { FormGroup } from '@components/form/FormGroup'
+import { Input } from '@components/form/Input'
+import { Textarea } from '@components/form/Textarea'
+import { Form } from '@components/form/Form'
 
 export const ContactForm = () => {
   const [formData, setFormData] = useState<FormData>({ name: '', email: '', message: '' })
@@ -58,37 +62,30 @@ export const ContactForm = () => {
   }
 
   return (
-    <div className='contact-form'>
-      <div className='contact-form-box'>
-        <form onSubmit={handleSubmit} className='form'>
-          <div className='form-group'>
-            <label htmlFor='name'>Nombre</label>
-            <input id='name' type='text' name='name' value={formData.name} onChange={handleChange} autoComplete='off' required />
-            {errors.name && <p>{errors.name}</p>}
-          </div>
-          <div className='form-group'>
-            <label htmlFor='email'>Email</label>
-            <input id='email' type='email' name='email' value={formData.email} onChange={handleChange} autoComplete='off' required />
-            {errors.email && <p>{errors.email}</p>}
-          </div>
-          <div className='form-group'>
-            <label htmlFor='message'>Mensaje</label>
-            <textarea id='message' name='message' value={formData.message} onChange={handleChange} autoComplete='off' required />
-            {errors.message && <p>{errors.message}</p>}
-          </div>
+    <Form handleSubmit={handleSubmit}>
+      <FormGroup label='Nombre' id='name'>
+        <Input id='name' type='text' value={formData.name} onChange={handleChange} />
+        {errors.name && <p>{errors.name}</p>}
+      </FormGroup>
+      <FormGroup label='Email' id='email'>
+        <Input id='email' type='email' value={formData.email} onChange={handleChange} />
+        {errors.email && <p>{errors.email}</p>}
+      </FormGroup>
+      <FormGroup label='Mensaje' id='message'>
+        <Textarea id='message' value={formData.message} onChange={handleChange} />
+        {errors.message && <p>{errors.message}</p>}
+      </FormGroup>
 
-          <button type='submit' className='btn-primary'>
-            {isLoading ? <ImSpinner6 className='spinner' size={19} /> : 'Enviar mensaje'}
-          </button>
-        </form>
+      <button type='submit' className='btn-primary'>
+        {isLoading ? <ImSpinner6 className='spinner' size={19} /> : 'Enviar mensaje'}
+      </button>
 
-        {isModalVisible &&
-        <Modal onClose={() => setModalVisible(false)}>
-          <h3>¡Mensaje enviado!</h3>
-          <p>¡Muchas gracias por contactarnos! Tu mensaje se ha enviado correctamente. Pronto nos pondremos en contacto contigo.</p>
-        </Modal>
-        }
-      </div>
-    </div>
+      {isModalVisible &&
+      <Modal onClose={() => setModalVisible(false)}>
+        <h3>¡Mensaje enviado!</h3>
+        <p>¡Muchas gracias por contactarnos! Tu mensaje se ha enviado correctamente. Pronto nos pondremos en contacto contigo.</p>
+      </Modal>
+      }
+    </Form>
   )
 }

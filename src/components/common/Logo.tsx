@@ -5,7 +5,7 @@ export const Logo = ({ titleTag: TitleTag = 'p' }: { titleTag?: keyof JSX.Intrin
   const { restaurantName } = useRestaurantContext()
   return (
     <div className='logo'>
-      <Img src='./images/logo.png' alt='logo' />
+      <Img src='/images/logo.png' alt='logo' />
       <TitleTag className='logo-title'>{restaurantName}</TitleTag>
     </div>
   )

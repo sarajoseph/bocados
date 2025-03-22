@@ -1,0 +1,60 @@
+.form-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+.form-content {
+  background-color: #e4e4e4;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: #333;
+  max-width: 100%;
+  padding: 2rem;
+  width: 100%;
+  @media (width >= $breakpoint-sm) {
+    max-width: $breakpoint-sm;
+    padding: 3rem;
+  }
+  &.xs {
+    @media (width >= $breakpoint-sm) {
+      max-width: $breakpoint-xs;
+    }
+  }
+}
+.form {
+  &-group {
+    margin-bottom: 2rem;
+    .error {
+      color: #ff0000;
+      font-size: .75rem;
+      margin-top: .25rem;
+    }
+  }
+  .label {
+    font-family: $font-h3;
+    font-weight: 400;
+    letter-spacing: .1rem;
+    margin-bottom: .5rem;
+    text-transform: uppercase;
+  }
+  .input,
+  .textarea {
+    background-color: #fff;
+    border-radius: 5px;
+    border-color: transparent;
+    box-sizing: border-box;
+    font-family: $font-main;
+    font-size: 1rem;
+    max-width: 100%;
+    padding: .8rem;
+    width: 100%;
+    &:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 1px $coral;
+    }
+  }
+  .textarea {
+    min-height: 100px;
+  }
+}
