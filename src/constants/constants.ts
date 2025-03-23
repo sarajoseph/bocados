@@ -74,3 +74,9 @@ export const buttonsFromBottomAnimation: motionPropsType = {
   transition: { duration: .8, ease: 'easeIn', delay: 0.5 },
   viewport: { once: true }
 }
+export const urlHome = '/'
+export const urlMenu = '/menu'
+export const urlContact = '/contact'
+export const urlAdmin = '/admin'
+export const urlEditDetails = '/admin/edit-details'
+export const urlEditMenu = '/admin/edit-menu'

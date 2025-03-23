@@ -1,9 +1,9 @@
-import { ImSpinner6 } from 'react-icons/im'
+import { Spinner } from '@components/common/Spinner'
 
 export const Loading = () => {
   return (
     <div className='loading'>
-      <ImSpinner6 className='spinner' size={40} />
+      <Spinner size={40} />
     </div>
   )
 }

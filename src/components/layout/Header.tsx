@@ -1,5 +1,5 @@
 import { Logo } from '@components/common/Logo'
-import { fadeOutAnimation } from '@constants/constants'
+import { fadeOutAnimation, urlHome } from '@constants/constants'
 import { motion } from 'motion/react'
 import { Link } from 'react-router'
 import { Navigation } from '@components/layout/Navigation'
@@ -13,7 +13,7 @@ export const Header = () => {
     <header>
       <div className='header'>
         <motion.div {...fadeOutAnimation} className='container'>
-          <Link to='/'>
+          <Link to={urlHome}>
             <Logo titleTag='h1' />
           </Link>
           <button className='burger-button' onClick={openMenu}>

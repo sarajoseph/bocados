@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { ImSpinner6 } from 'react-icons/im'
 import emailjs from '@emailjs/browser'
 import { FormData, Errors } from '@mytypes/types'
 import { Modal } from '@components/common/Modal'
@@ -7,6 +6,7 @@ import { FormGroup } from '@components/form/FormGroup'
 import { Input } from '@components/form/Input'
 import { Textarea } from '@components/form/Textarea'
 import { Form } from '@components/form/Form'
+import { Spinner } from '@components/common/Spinner'
 
 export const ContactForm = () => {
   const [formData, setFormData] = useState<FormData>({ name: '', email: '', message: '' })
@@ -77,7 +77,7 @@ export const ContactForm = () => {
       </FormGroup>
 
       <button type='submit' className='btn-primary'>
-        {isLoading ? <ImSpinner6 className='spinner' size={19} /> : 'Enviar mensaje'}
+        {isLoading ? <Spinner /> : 'Enviar mensaje'}
       </button>
 
       {isModalVisible &&
