@@ -2,7 +2,7 @@ type InputProps = {
   id: string,
   type: string,
   value?: string,
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void,
 }
 export const Input = ({ id, type, value, onChange }: InputProps) => {
   return <input

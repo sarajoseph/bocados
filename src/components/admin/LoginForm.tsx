@@ -3,7 +3,7 @@ import { FormGroup } from '@components/form/FormGroup'
 import { Input } from '@components/form/Input'
 import { Form } from '@components/form/Form'
 import { useLogin } from '@hooks/useLogin'
-import { Spinner } from '@components/common/Spinner'
+import { SubmitButton } from '@components/form/SubmitButton'
 
 export const LoginForm = () => {
   const [email, setEmail] = useState('')
@@ -27,9 +27,7 @@ export const LoginForm = () => {
       </FormGroup>
       {isError && !isLoading && <p>{errorMessage}</p>}
       {isSuccess && <p>Logged in successfully</p>}
-      <button type='submit' className='btn-primary'>
-        {isLoading ? <Spinner /> : 'Entrar'}
-      </button>
+      <SubmitButton isLoading={isLoading} text='Entrar' />
     </Form>
     </>
   )

@@ -6,7 +6,7 @@ import { FormGroup } from '@components/form/FormGroup'
 import { Input } from '@components/form/Input'
 import { Textarea } from '@components/form/Textarea'
 import { Form } from '@components/form/Form'
-import { Spinner } from '@components/common/Spinner'
+import { SubmitButton } from '@components/form/SubmitButton'
 
 export const ContactForm = () => {
   const [formData, setFormData] = useState<FormData>({ name: '', email: '', message: '' })
@@ -76,9 +76,7 @@ export const ContactForm = () => {
         {errors.message && <p>{errors.message}</p>}
       </FormGroup>
 
-      <button type='submit' className='btn-primary'>
-        {isLoading ? <Spinner /> : 'Enviar mensaje'}
-      </button>
+      <SubmitButton isLoading={isLoading} text='Enviar mensaje' />
 
       {isModalVisible &&
       <Modal onClose={() => setModalVisible(false)}>

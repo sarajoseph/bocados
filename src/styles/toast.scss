@@ -1,0 +1,44 @@
+$success-color: #57aa7e;
+$error-color: #e53e3e;
+$warning-color: #d69e2e;
+$info-color: #3182ce;
+.toast {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  padding: 1rem;
+  background-color: $success-color;
+  color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+  @include flex(row, center, center, .5rem);
+
+  @media (width >= $breakpoint-xs) {
+    left: auto;
+  }
+
+  &.error {
+    background-color: $error-color;
+  }
+
+  &.warning {
+    background-color: $warning-color;
+  }
+
+  &.info {
+    background-color: $info-color;
+  }
+
+  svg {
+    font-size: 1.5rem;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

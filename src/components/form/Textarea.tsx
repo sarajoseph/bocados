@@ -1,7 +1,7 @@
 type TextareaProps = {
   id: string,
   value: string,
-  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void,
+  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void,
 }
 export const Textarea = ({ id, value, onChange }: TextareaProps) => {
   return <textarea
