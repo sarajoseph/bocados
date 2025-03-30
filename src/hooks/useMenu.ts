@@ -1,35 +1,80 @@
 import { db } from '@src/firebase/client'
 import { MenuDataType } from '@mytypes/types'
-import { getDocs, collection } from 'firebase/firestore'
-import { useState, useEffect } from 'react'
+import { doc, setDoc } from 'firebase/firestore'
+import { useState } from 'react'
+import { FirebaseError } from 'firebase/app'
+import { useRestaurantContext } from '@hooks/useRestaurantContext'
 
 export const useMenu = () => {
-  const [menu, setMenu] = useState<MenuDataType>({})
-  const [loadingMenu, setLoadingMenu] = useState(true)
+  const { restaurantMenu } = useRestaurantContext()
+  const [carta, setCarta] = useState<MenuDataType | null>(restaurantMenu)
+  const [activeCategory, setActiveCategory] = useState<string | null>(null)
+  const [isLoading, setIsLoading] = useState(false)
+  const [successMessage, setSuccessMessage] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
 
-  useEffect(() => {
-    const fetchMenu = async () => {
-      try {
-        const subcollections = ['entrantes', 'pizzas', 'burgers', 'principales', 'postres', 'bebidas']
-        const menuData: MenuDataType = {}
+  const toggleCategory = (category: string) => {
+    setActiveCategory(prev => (prev === category ? null : category))
+  }
 
-        await Promise.all(
-          subcollections.map(async (subcollection) => {
-            const querySnapshot = await getDocs(collection(db, 'restaurant', 'menu', subcollection))
-            menuData[subcollection] = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-          })
-        )
-        setMenu(menuData)
-
-      } catch (error) {
-        console.error('Error fetching menu:', error)
-      } finally {
-        setLoadingMenu(false)
+  const updateMenuItem = (category: string, itemID: string, updates: { [key: string]: string }) => {
+    setCarta(prevMenu => {
+      if (!prevMenu) return prevMenu
+      return {
+        ...prevMenu,
+        [category]: prevMenu[category].map(item =>
+          item.id === itemID ? { ...item, ...updates } : item
+        ),
       }
+    })
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsLoading(true)
+    //console.log(JSON.stringify(carta, null, 2))
+    try {
+      if (!carta) throw new Error('No hay datos para guardar')
+      await savemenu(carta)
+      setSuccessMessage('Cambios guardados correctamente')
+    } catch (error) {
+      const firebaseError = error as FirebaseError
+      setErrorMessage(firebaseError.message)
+      console.error(firebaseError.message)
+    } finally {
+      setIsLoading(false)
     }
+  }
 
-    fetchMenu()
-  }, [])
+  const savemenu = async (data: MenuDataType) => {
+    const menuRef = doc(db, 'restaurant', 'menu')
+    const promises = Object.entries(data).flatMap(([category, items]) => {
+      if (category === 'bebidas') {
+        return items.map(item => {
+          const docRef = doc(menuRef, category, item.id)
+          return setDoc(docRef, item, { merge: true })
+        })
+      }
 
-  return { menu, loadingMenu }
+      // The other categories
+      return items.map(item => {
+        const { id, ...rest } = item
+        const docRef = doc(menuRef, category, id)
+        return setDoc(docRef, rest, { merge: true })
+      })
+    })
+
+    await Promise.all(promises)
+  }
+
+  return {
+    carta,
+    activeCategory,
+    toggleCategory,
+    updateMenuItem,
+    isLoading,
+    successMessage,
+    errorMessage,
+    handleSubmit
+  }
 }

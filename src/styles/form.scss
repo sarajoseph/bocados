@@ -4,7 +4,7 @@
   flex-direction: column;
   margin-top: 2rem;
 }
-.form-content {
+.form-wrapper {
   background-color: #e4e4e4;
   border-radius: 10px;
   box-sizing: border-box;
@@ -33,8 +33,21 @@
   }
 }
 .form {
-  &-group {
+  @include flex(column, flex-start, flex-start, 3rem);
+  .btn-primary {
+    margin: 0 auto;
+  }
+  .btn-admin {
+    margin-left: auto;
+  }
+}
+.form-body {
+  width: 100%;
+  .form-group {
     margin-bottom: 2rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
     .error {
       color: #ff0000;
       font-size: .75rem;
@@ -84,9 +97,80 @@
       > *:nth-child(10) {
         grid-column: span 4;
       }
-      > *:nth-child(11) {
-        grid-column: 4;
+    }
+  }
+  &.menu {
+    @include flex(column, flex-start, flex-start, 3rem);
+    .menu-category {
+      width: 100%;
+      @include flex(column, flex-start, flex-start, 2rem);
+      .menu-category-header {
+        @include flex(row, flex-start, center, 1rem);
+        width: 100%;
+        > .form-group {
+          margin-bottom: 0;
+          max-width: 100%;
+          width: 100%;
+          @media (width >= $breakpoint-sm) {
+            max-width: 50%;
+          }
+          .label {
+            display: none;
+          }
+        }
       }
+    }
+    .menu-items {
+      @include flex(row, space-between, flex-start, 1rem);
+      flex-wrap: wrap;
+      padding-left: 50px;
+    }
+    .menu-items-beberage {
+      @include flex(column, flex-start, flex-start, 2rem);
+      box-sizing: border-box;
+      padding-left: 50px;
+      width: 100%;
+      max-width: 100%;
+    }
+    .menu-items-group {
+      width: 100%;
+      @include flex(row, space-between, flex-start, 1rem);
+      flex-wrap: wrap;
+      h5 {
+        box-sizing: border-box;
+        width: 100%;
+        @include heading(1.2rem, $font-main, 600, inherit, .1rem, uppercase);
+      }
+    }
+    .menu-item {
+      flex: 1 1 100%;
+      max-width: 100%;
+      @media (width >= $breakpoint-md) {
+        flex: 1 1 45%;
+        max-width: 45%;
+      }
+    }
+  }
+}
+
+// Forms for admin panel
+.admin-form {
+  .form-wrapper {
+    background-color: $admin-panel-bg-color;
+    color: $white;
+  }
+  .card {
+    background-color: #4b5563;
+    border-radius: 10px;
+    color: $white;
+    font-family: $font-main;
+    padding: 1rem;
+    flex: 1 1 100%;
+    @include flex(column, flex-start, flex-start, 1rem);
+
+    .form-group {
+      margin-bottom: 0;
+      width: 100%;
     }
   }
 }

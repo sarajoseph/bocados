@@ -63,19 +63,20 @@ export const ContactForm = () => {
 
   return (
     <Form handleSubmit={handleSubmit}>
-      <FormGroup label='Nombre' id='name'>
-        <Input id='name' type='text' value={formData.name} onChange={handleChange} />
-        {errors.name && <p>{errors.name}</p>}
-      </FormGroup>
-      <FormGroup label='Email' id='email'>
-        <Input id='email' type='email' value={formData.email} onChange={handleChange} />
-        {errors.email && <p>{errors.email}</p>}
-      </FormGroup>
-      <FormGroup label='Mensaje' id='message'>
-        <Textarea id='message' value={formData.message} onChange={handleChange} />
-        {errors.message && <p>{errors.message}</p>}
-      </FormGroup>
-
+      <div className='form-body'>
+        <FormGroup label='Nombre' id='name'>
+          <Input id='name' type='text' value={formData.name} onChange={handleChange} />
+          {errors.name && <p>{errors.name}</p>}
+        </FormGroup>
+        <FormGroup label='Email' id='email'>
+          <Input id='email' type='email' value={formData.email} onChange={handleChange} />
+          {errors.email && <p>{errors.email}</p>}
+        </FormGroup>
+        <FormGroup label='Mensaje' id='message'>
+          <Textarea id='message' value={formData.message} onChange={handleChange} />
+          {errors.message && <p>{errors.message}</p>}
+        </FormGroup>
+      </div>
       <SubmitButton isLoading={isLoading} text='Enviar mensaje' />
 
       {isModalVisible &&

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useRestaurantContext } from '@hooks/useRestaurantContext'
-import { RestaurantDataType, TimetableType } from '@mytypes/types'
+import { BasicDataType, TimetableType } from '@mytypes/types'
 import { db } from '@src/firebase/client'
 import { doc, setDoc } from 'firebase/firestore'
 import { FirebaseError } from 'firebase/app'
@@ -73,7 +73,7 @@ export const useEditDetails = () => {
     e.preventDefault()
     setIsLoading(true)
 
-    const data: RestaurantDataType = {
+    const data: BasicDataType = {
       name,
       address,
       phone,
@@ -98,7 +98,7 @@ export const useEditDetails = () => {
     }
   }
 
-  const saveRestaurantBasicData = async (data: RestaurantDataType) => {
+  const saveRestaurantBasicData = async (data: BasicDataType) => {
     const docRef = doc(db, 'restaurant', 'basic')
     await setDoc(docRef, data, { merge: true })
   }

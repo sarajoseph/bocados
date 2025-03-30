@@ -12,13 +12,6 @@
       width: 100%;
     }
     .timetable-day{
-      background-color: $admin-panel-bg-color;
-      border-radius: 10px;
-      color: $white;
-      font-family: $font-main;
-      padding: 1rem;
-      flex: 1 1 100%;
-      @include flex(column, flex-start, flex-start, 1rem);
       @media (width >= $breakpoint-xs) {
         flex: 1 1 40%;
       }
@@ -26,14 +19,7 @@
         flex: 1 1 20%;
       }
       &-title {
-        @include heading(1.2rem, $font-main, 400, inherit, 0, uppercase);
-      }
-    }
-    .form-group {
-      margin-bottom: 0;
-      width: 100%;
-      .label {
-        @include heading(.9rem, $font-main, 400, inherit, 0);
+        @include heading(1.2rem, $font-main, 600, inherit, .1rem, uppercase);
       }
     }
   }

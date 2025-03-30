@@ -104,6 +104,16 @@ ul {
 .btn-secondary {
   @include button($btn-secondary-bg-color, $btn-secondary-text-color, $btn-secondary-hover-bg-color, $btn-secondary-padding);
 }
+.btn-admin {
+  @include button($btn-admin-bg-color, $btn-admin-text-color, $btn-admin-hover-bg-color, $btn-admin-padding);
+}
+.accordion-button {
+  background-color: transparent;
+  border: none;
+  color: $white;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
 .flex-row {
   @include flex(row);
 }

@@ -3,14 +3,14 @@ import { ReactNode } from 'react'
 type FormProps = {
   size?: 'xs' | 'sm' | 'md',
   handleSubmit: ((e: React.FormEvent) => void) | ((e: React.FormEvent<HTMLFormElement>) => Promise<void>),
+  adminForm?: boolean,
   children?: ReactNode
-  className?: string
 }
-export const Form = ({ size, handleSubmit, children, className = 'flex-column' }: FormProps) => {
+export const Form = ({ size, handleSubmit, adminForm=false, children }: FormProps) => {
   return (
-    <div className='form-container'>
-      <div className={'form-content '+size}>
-        <form onSubmit={handleSubmit} className={'form '+className}>
+    <div className={adminForm ? 'form-container admin-form' : 'form-container'}>
+      <div className={'form-wrapper '+size}>
+        <form onSubmit={handleSubmit} className='form'>
           {children}
         </form>
       </div>

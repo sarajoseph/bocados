@@ -4,7 +4,7 @@ export type TimetableType = {
   close: string
 }
 
-export type RestaurantDataType = {
+export type BasicDataType = {
   name: string
   address: string
   phone: string
@@ -18,7 +18,8 @@ export type RestaurantDataType = {
 }
 
 export type RestaurantContextType = {
-  restaurant: RestaurantDataType | null
+  basic: BasicDataType | null
+  menu: MenuDataType | null
   loading: boolean
   error: boolean
 }
